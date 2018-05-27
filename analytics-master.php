@@ -59,6 +59,7 @@ class Analytics_Master {
 	 */
 	public function load_dependencies() {
 		include 'php/settings-page.php';
+		include 'php/ga-code.php';
 	}
 
 	/**
@@ -69,6 +70,7 @@ class Analytics_Master {
 	public function init() {
 		Settings_Page::init();
 		add_action( 'admin_menu', array( $this, 'setup_admin' ) );
+		add_action( 'wp_head', '' );
 	}
 
 	/**
