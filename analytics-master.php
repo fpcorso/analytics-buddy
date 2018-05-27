@@ -14,7 +14,7 @@
  */
 
 /**
- * @todo
+ * Stuff @todo
  *
  * 1. Finalize name
  * 2. Switch URL's at top
@@ -37,6 +37,7 @@ class Analytics_Master {
 	 * The current version of the plugin
 	 *
 	 * @since 1.0.0
+	 * @var string
 	 */
 	public $version = '1.0.0';
 
