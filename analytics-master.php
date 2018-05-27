@@ -49,6 +49,7 @@ class Analytics_Master {
 	 */
 	public function __construct() {
 		$this->load_dependencies();
+		$this->init();
 	}
 
 	/**
@@ -57,7 +58,26 @@ class Analytics_Master {
 	 * @since 1.0.0
 	 */
 	public function load_dependencies() {
+		include 'php/settings-page.php';
+	}
 
+	/**
+	 * Sets up all actions and filters
+	 *
+	 * @since 1.0.0
+	 */
+	public function init() {
+		Settings_Page::init();
+		add_action( 'admin_menu', array( $this, 'setup_admin' ) );
+	}
+
+	/**
+	 * Configures admin pages
+	 *
+	 * @since 1.0.0
+	 */
+	public function setup_admin() {
+		add_options_page( __( '' ), __( '' ), 'manage_options', 'analytics_master', array( 'Settings_Page', 'display_page' ) );
 	}
 }
 
