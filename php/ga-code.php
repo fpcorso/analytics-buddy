@@ -9,25 +9,44 @@
  * @since 1.0.0
  */
 function something() {
-	$settings = get_option( '' );
-	$tracking
-	?>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	$settings     = get_option( '' );
+	$tracking_id  = '';
+	$disable_user = '0';
+	$do_not_track = '0';
+	$anonymize_ip = '0';
 
-		ga('create', '<?php echo $id; ?>', 'auto');
-		<?php
-		// if anonymized
+	if ( ! empty( $tracking ) && ( '1' != $disable_user || ! is_user_logged_in() ) ) {
 		?>
-		ga('set', 'anonymizeIp', true);
-		<?php
-		// end
-		?>
-		ga('send', 'pageview');
+		<script>
+			<?php
+			if ( '1' == $do_not_track ) {
+				?>
+				if ('1' != navigator.doNotTrack && '1' != window.doNotTrack ) {
+				<?php
+			}
+			?>
+					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+					})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-	</script>
-	<?php
+					ga('create', '<?php echo $id; ?>', 'auto');
+					<?php
+					if ( '1' == $anonymize_ip ) {
+						?>
+						ga('set', 'anonymizeIp', true);
+						<?php
+					}
+					?>
+					ga('send', 'pageview');
+			<?php
+			if ( '1' == $do_not_track ) {
+				?>
+				}
+				<?php
+			}
+			?>
+		</script>
+		<?php
+	}
 }
