@@ -8,18 +8,16 @@
  *
  * @since 1.0.0
  */
-function something() {
-	$settings     = get_option( '' );
-	$tracking_id  = '';
-	$disable_user = '0';
-	$do_not_track = '0';
-	$anonymize_ip = '0';
+function add_ga_script() {
+	$settings = $analytic_master->get_settings();
 
-	if ( ! empty( $tracking ) && ( '1' != $disable_user || ! is_user_logged_in() ) ) {
+	// If the tracking ID is empty, or IF the setting to disable user is on, then check if user is logged in.
+	if ( ! empty( $settings['tracking_id'] ) && ( '1' != $settings['disable_user'] || ! is_user_logged_in() ) ) {
 		?>
 		<script>
 			<?php
-			if ( '1' == $do_not_track ) {
+			// If we should honor Do Not Track, add if in JS to check.
+			if ( '1' == $settings['do_not_track'] ) {
 				?>
 				if ('1' != navigator.doNotTrack && '1' != window.doNotTrack ) {
 				<?php
@@ -30,9 +28,10 @@ function something() {
 					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 					})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-					ga('create', '<?php echo $id; ?>', 'auto');
+					ga('create', '<?php echo esc_js( $settings['tracking_id'] ); ?>', 'auto');
 					<?php
-					if ( '1' == $anonymize_ip ) {
+					// If we are anonymizing IP addresses.
+					if ( '1' == $settings['anonymize_ip'] ) {
 						?>
 						ga('set', 'anonymizeIp', true);
 						<?php
@@ -40,7 +39,7 @@ function something() {
 					?>
 					ga('send', 'pageview');
 			<?php
-			if ( '1' == $do_not_track ) {
+			if ( '1' == $settings['do_not_track'] ) {
 				?>
 				}
 				<?php

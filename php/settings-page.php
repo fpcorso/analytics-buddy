@@ -44,7 +44,7 @@ class Settings_Page {
 	 */
 	public function display_main_section() {
 		echo '<p>' . __( '' ) . '</p>';
-		if ( isset( $_GET["settings-updated"] ) && $_GET["settings-updated"] ) {
+		if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] ) {
 			?>
 			<div id="message" class="updated below-h2"><p><?php _e( '' ); ?></p></div>
 			<?php
@@ -57,27 +57,21 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function id_field() {
-		$settings    = (array) get_option( 'qmn-settings' );
-		$tracking_id = '';
-		if ( isset( $settings['tracking_id'] ) ) {
-			$tracking_id = esc_attr( $settings['tracking_id'] );
-		}
-		echo "<input type='text' name='qmn-settings[tracking_id]' id='qmn-settings[tracking_id]' value='$tracking_id' />";
+		$settings = $analytic_master->get_settings();
+		?>
+		<input type='text' name='qmn-settings[tracking_id]' id='qmn-settings[tracking_id]' value='<?php echo esc_attr( $settings['tracking_id'] ); ?>' />
+		<?php
 	}
 
 	/**
-	 * Generates the disable user  field
+	 * Generates the disable user field
 	 *
 	 * @since 1.0.0
 	 */
 	public function disable_user_field() {
-		$settings     = (array) get_option( 'qmn-settings' );
-		$disable_user = '0';
-		if ( isset( $settings['disable_user'] ) ) {
-			$disable_user = esc_attr( $settings['disable_user'] );
-		}
+		$settings = $analytic_master->get_settings();
 		$checked = '';
-		if ( '1' == $disable_user ) {
+		if ( '1' == $settings['disable_user'] ) {
 			$checked = " checked='checked'";
 		}
 		echo "<input type='checkbox' name='qmn-settings[disable_user]' id='qmn-settings[disable_user]' value='1'$checked />";
@@ -89,13 +83,9 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function anonymize_ip_field() {
-		$settings     = (array) get_option( 'qmn-settings' );
-		$anonymize_ip = '0';
-		if ( isset( $settings['anonymize_ip'] ) ) {
-			$anonymize_ip = esc_attr( $settings['anonymize_ip'] );
-		}
+		$settings = $analytic_master->get_settings();
 		$checked = '';
-		if ( '1' == $anonymize_ip ) {
+		if ( '1' == $settings['anonymize_ip'] ) {
 			$checked = " checked='checked'";
 		}
 		echo "<input type='checkbox' name='qmn-settings[anonymize_ip]' id='qmn-settings[anonymize_ip]' value='1'$checked />";
@@ -107,13 +97,9 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function do_not_track_field() {
-		$settings     = (array) get_option( 'qmn-settings' );
-		$do_not_track = '0';
-		if ( isset( $settings['do_not_track'] ) ) {
-			$do_not_track = esc_attr( $settings['do_not_track'] );
-		}
+		$settings = $analytic_master->get_settings();
 		$checked = '';
-		if ( '1' == $do_not_track ) {
+		if ( '1' == $settings['do_not_track'] ) {
 			$checked = " checked='checked'";
 		}
 		echo "<input type='checkbox' name='qmn-settings[do_not_track]' id='qmn-settings[do_not_track]' value='1'$checked />";
