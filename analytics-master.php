@@ -1,22 +1,16 @@
 <?php
 /**
- * Plugin Name: Analytics Master
+ * Plugin Name: Analytics Buddy
  * Description: Quickly and easily add Google Analytics to your site
  * Version: 1.0.0
  * Author: Frank Corso
  * Author URI: https://markasio.com/
  * Plugin URI: https://markasio.com/
- * Text Domain: quiz-master-next
+ * Text Domain: analytics-buddy
  *
  * @author Frank Corso
  * @version 1.0.0
- * @package QSM
- */
-
-/**
- * Stuff @todo
- *
- * 1. Finalize name
+ * @package ANBU
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Analytics_Master {
+class Analytics_Buddy {
 
 	/**
 	 * The current version of the plugin
@@ -42,8 +36,8 @@ class Analytics_Master {
 	 * Sets up the entire plugin
 	 *
 	 * @since 1.0.0
-	 * @uses Analytics_Master::load_dependencies
-	 * @uses Analytics_Master::init
+	 * @uses Analytics_Buddy::load_dependencies
+	 * @uses Analytics_Buddy::init
 	 */
 	public function __construct() {
 		$this->load_dependencies();
@@ -64,12 +58,12 @@ class Analytics_Master {
 	 * Sets up all actions and filters
 	 *
 	 * @since 1.0.0
-	 * @uses Settings_Page::init
+	 * @uses ANBU_Settings_Page::init
 	 */
 	public function init() {
-		Settings_Page::init();
+		ANBU_Settings_Page::init();
 		add_action( 'admin_menu', array( $this, 'setup_admin' ) );
-		add_action( 'wp_head', '' );
+		add_action( 'wp_head', 'anbu_add_ga_script' );
 	}
 
 	/**
@@ -78,7 +72,7 @@ class Analytics_Master {
 	 * @since 1.0.0
 	 */
 	public function setup_admin() {
-		add_options_page( __( '' ), __( '' ), 'manage_options', 'analytics_master', array( 'Settings_Page', 'display_page' ) );
+		add_options_page( 'Analytics Buddy', 'Analytics Buddy', 'manage_options', 'analytics_buddy', array( 'ANBU_Settings_Page', 'display_page' ) );
 	}
 
 	/**
@@ -88,7 +82,7 @@ class Analytics_Master {
 	 * @return array The array of settings
 	 */
 	public function get_settings() {
-		$settings = get_option( '', array() );
+		$settings = get_option( 'anbu-settings', array() );
 		$defaults = array(
 			'tracking_id'  => '',
 			'disable_user' => '1',
@@ -99,5 +93,5 @@ class Analytics_Master {
 	}
 }
 
-global $analytics_manager;
-$analytics_manager = new Analytics_Manager();
+global $analytics_buddy;
+$analytics_buddy = new Analytics_Buddy();

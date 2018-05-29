@@ -1,6 +1,8 @@
 <?php
 /**
  * This file creates the settings page
+ *
+ * @package ANBU
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Settings_Page {
+class ANBU_Settings_Page {
 
 	/**
 	 * Registers setup hook
@@ -29,12 +31,12 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function setup() {
-		register_setting( 'qmn-settings-group', 'qmn-settings' );
-		add_settings_section( 'qmn-global-section', __( 'Main Settings', 'quiz-master-next' ), array( $this, 'display_main_section' ), 'qmn_global_settings' );
-		add_settings_field( 'id-field', __( 'Your tracking ID. Should look like UA-XXXX-Y.', 'quiz-master-next' ), array( $this, 'id_field' ), 'qmn_global_settings', 'qmn-global-section' );
-		add_settings_field( 'disable-user', __( 'Exclude tracking logged-in users?', 'quiz-master-next' ), array( $this, 'disable_user_field' ), 'qmn_global_settings', 'qmn-global-section' );
-		add_settings_field( 'anonymize-ip', __( 'Anonymize IP Addresses?', 'quiz-master-next' ), array( $this, 'anonymize_ip_field' ), 'qmn_global_settings', 'qmn-global-section' );
-		add_settings_field( 'do-not-track', __( 'Honor Do Not Track?', 'quiz-master-next' ), array( $this, 'do_not_track_field' ), 'qmn_global_settings', 'qmn-global-section' );
+		register_setting( 'anbu-settings-group', 'anbu-settings' );
+		add_settings_section( 'anbu-global-section', __( 'Main Settings', 'analytics-buddy' ), array( $this, 'display_main_section' ), 'anbu_global_settings' );
+		add_settings_field( 'id-field', __( 'Your tracking ID. Should look like UA-XXXX-Y.', 'analytics-buddy' ), array( $this, 'id_field' ), 'anbu_global_settings', 'anbu-global-section' );
+		add_settings_field( 'disable-user', __( 'Exclude tracking logged-in users?', 'analytics-buddy' ), array( $this, 'disable_user_field' ), 'anbu_global_settings', 'anbu-global-section' );
+		add_settings_field( 'anonymize-ip', __( 'Anonymize IP Addresses?', 'analytics-buddy' ), array( $this, 'anonymize_ip_field' ), 'anbu_global_settings', 'anbu-global-section' );
+		add_settings_field( 'do-not-track', __( 'Honor Do Not Track?', 'analytics-buddy' ), array( $this, 'do_not_track_field' ), 'anbu_global_settings', 'anbu-global-section' );
 	}
 
 	/**
@@ -43,10 +45,10 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function display_main_section() {
-		echo '<p>' . __( '' ) . '</p>';
+		echo '<p>' . __( '', 'analytics-buddy' ) . '</p>';
 		if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] ) {
 			?>
-			<div id="message" class="updated below-h2"><p><?php _e( '' ); ?></p></div>
+			<div id="message" class="updated below-h2"><p><?php _e( '', 'analytics-buddy' ); ?></p></div>
 			<?php
 		}
 	}
@@ -57,9 +59,10 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function id_field() {
-		$settings = $analytic_master->get_settings();
+		global $analytics_buddy;
+		$settings = $analytics_buddy->get_settings();
 		?>
-		<input type='text' name='qmn-settings[tracking_id]' id='qmn-settings[tracking_id]' value='<?php echo esc_attr( $settings['tracking_id'] ); ?>' />
+		<input type='text' name='anbu-settings[tracking_id]' id='anbu-settings[tracking_id]' value='<?php echo esc_attr( $settings['tracking_id'] ); ?>' />
 		<?php
 	}
 
@@ -69,12 +72,13 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function disable_user_field() {
-		$settings = $analytic_master->get_settings();
+		global $analytics_buddy;
+		$settings = $analytics_buddy->get_settings();
 		$checked = '';
 		if ( '1' == $settings['disable_user'] ) {
 			$checked = " checked='checked'";
 		}
-		echo "<input type='checkbox' name='qmn-settings[disable_user]' id='qmn-settings[disable_user]' value='1'$checked />";
+		echo "<input type='checkbox' name='anbu-settings[disable_user]' id='anbu-settings[disable_user]' value='1'$checked />";
 	}
 
 	/**
@@ -83,12 +87,13 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function anonymize_ip_field() {
-		$settings = $analytic_master->get_settings();
+		global $analytics_buddy;
+		$settings = $analytics_buddy->get_settings();
 		$checked = '';
 		if ( '1' == $settings['anonymize_ip'] ) {
 			$checked = " checked='checked'";
 		}
-		echo "<input type='checkbox' name='qmn-settings[anonymize_ip]' id='qmn-settings[anonymize_ip]' value='1'$checked />";
+		echo "<input type='checkbox' name='anbu-settings[anonymize_ip]' id='anbu-settings[anonymize_ip]' value='1'$checked />";
 	}
 
 	/**
@@ -97,12 +102,13 @@ class Settings_Page {
 	 * @since 1.0.0
 	 */
 	public function do_not_track_field() {
-		$settings = $analytic_master->get_settings();
+		global $analytics_buddy;
+		$settings = $analytics_buddy->get_settings();
 		$checked = '';
 		if ( '1' == $settings['do_not_track'] ) {
 			$checked = " checked='checked'";
 		}
-		echo "<input type='checkbox' name='qmn-settings[do_not_track]' id='qmn-settings[do_not_track]' value='1'$checked />";
+		echo "<input type='checkbox' name='anbu-settings[do_not_track]' id='anbu-settings[do_not_track]' value='1'$checked />";
 	}
 
 	/**
@@ -115,8 +121,8 @@ class Settings_Page {
 		<div class="wrap">
 			<h2><?php _e( '' ); ?></h2>
 			<form action="options.php" method="POST">
-				<?php settings_fields( 'qmn-settings-group' ); ?>
-				<?php do_settings_sections( 'qmn_global_settings' ); ?>
+				<?php settings_fields( 'anbu-settings-group' ); ?>
+				<?php do_settings_sections( 'anbu_global_settings' ); ?>
 				<?php submit_button(); ?>
 			</form>
 		</div>

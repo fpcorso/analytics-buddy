@@ -1,6 +1,8 @@
 <?php
 /**
  * This file handles displaying the GA code
+ *
+ * @package ANBU
  */
 
 /**
@@ -8,8 +10,9 @@
  *
  * @since 1.0.0
  */
-function add_ga_script() {
-	$settings = $analytic_master->get_settings();
+function anbu_add_ga_script() {
+	global $analytics_buddy;
+	$settings = $analytics_buddy->get_settings();
 
 	// If the tracking ID is empty, or IF the setting to disable user is on, then check if user is logged in.
 	if ( ! empty( $settings['tracking_id'] ) && ( '1' != $settings['disable_user'] || ! is_user_logged_in() ) ) {
