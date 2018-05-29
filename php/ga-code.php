@@ -17,6 +17,7 @@ function anbu_add_ga_script() {
 	// If the tracking ID is empty, or IF the setting to disable user is on, then check if user is logged in.
 	if ( ! empty( $settings['tracking_id'] ) && ( '1' != $settings['disable_user'] || ! is_user_logged_in() ) ) {
 		?>
+		<!-- Google Analytics added by Analytics Buddy v1.0.0 -->
 		<script>
 			<?php
 			// If we should honor Do Not Track, add if in JS to check.

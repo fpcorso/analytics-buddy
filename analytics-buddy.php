@@ -85,9 +85,9 @@ class Analytics_Buddy {
 		$settings = get_option( 'anbu-settings', array() );
 		$defaults = array(
 			'tracking_id'  => '',
-			'disable_user' => '1',
-			'anonymize_ip' => '1',
-			'do_not_track' => '1',
+			'disable_user' => '0',
+			'anonymize_ip' => '0',
+			'do_not_track' => '0',
 		);
 		return wp_parse_args( $settings, $defaults );
 	}

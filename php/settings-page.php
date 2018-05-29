@@ -21,8 +21,8 @@ class ANBU_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function init() {
-		add_action( 'admin_init', array( $this, 'setup' ) );
+	public static function init() {
+		add_action( 'admin_init', array( 'ANBU_Settings_Page', 'setup' ) );
 	}
 
 	/**
@@ -30,13 +30,13 @@ class ANBU_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function setup() {
+	public static function setup() {
 		register_setting( 'anbu-settings-group', 'anbu-settings' );
-		add_settings_section( 'anbu-global-section', __( 'Main Settings', 'analytics-buddy' ), array( $this, 'display_main_section' ), 'anbu_global_settings' );
-		add_settings_field( 'id-field', __( 'Your tracking ID. Should look like UA-XXXX-Y.', 'analytics-buddy' ), array( $this, 'id_field' ), 'anbu_global_settings', 'anbu-global-section' );
-		add_settings_field( 'disable-user', __( 'Exclude tracking logged-in users?', 'analytics-buddy' ), array( $this, 'disable_user_field' ), 'anbu_global_settings', 'anbu-global-section' );
-		add_settings_field( 'anonymize-ip', __( 'Anonymize IP Addresses?', 'analytics-buddy' ), array( $this, 'anonymize_ip_field' ), 'anbu_global_settings', 'anbu-global-section' );
-		add_settings_field( 'do-not-track', __( 'Honor Do Not Track?', 'analytics-buddy' ), array( $this, 'do_not_track_field' ), 'anbu_global_settings', 'anbu-global-section' );
+		add_settings_section( 'anbu-global-section', __( 'Main Settings', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'display_main_section' ), 'anbu_global_settings' );
+		add_settings_field( 'id-field', __( 'Your tracking ID. Should look like UA-XXXX-Y.', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'id_field' ), 'anbu_global_settings', 'anbu-global-section' );
+		add_settings_field( 'disable-user', __( 'Exclude tracking logged-in users?', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'disable_user_field' ), 'anbu_global_settings', 'anbu-global-section' );
+		add_settings_field( 'anonymize-ip', __( 'Anonymize IP Addresses?', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'anonymize_ip_field' ), 'anbu_global_settings', 'anbu-global-section' );
+		add_settings_field( 'do-not-track', __( 'Honor Do Not Track?', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'do_not_track_field' ), 'anbu_global_settings', 'anbu-global-section' );
 	}
 
 	/**
@@ -44,13 +44,8 @@ class ANBU_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function display_main_section() {
-		echo '<p>' . __( '', 'analytics-buddy' ) . '</p>';
-		if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] ) {
-			?>
-			<div id="message" class="updated below-h2"><p><?php _e( '', 'analytics-buddy' ); ?></p></div>
-			<?php
-		}
+	public static function display_main_section() {
+		echo '<p>' . __( 'Enter in your tracking ID and start collecting data for Google Analytics!', 'analytics-buddy' ) . '</p>';
 	}
 
 	/**
@@ -58,7 +53,7 @@ class ANBU_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function id_field() {
+	public static function id_field() {
 		global $analytics_buddy;
 		$settings = $analytics_buddy->get_settings();
 		?>
@@ -71,7 +66,7 @@ class ANBU_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function disable_user_field() {
+	public static function disable_user_field() {
 		global $analytics_buddy;
 		$settings = $analytics_buddy->get_settings();
 		$checked = '';
@@ -86,7 +81,7 @@ class ANBU_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function anonymize_ip_field() {
+	public static function anonymize_ip_field() {
 		global $analytics_buddy;
 		$settings = $analytics_buddy->get_settings();
 		$checked = '';
@@ -101,7 +96,7 @@ class ANBU_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function do_not_track_field() {
+	public static function do_not_track_field() {
 		global $analytics_buddy;
 		$settings = $analytics_buddy->get_settings();
 		$checked = '';
@@ -116,10 +111,10 @@ class ANBU_Settings_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function display_page() {
+	public static function display_page() {
 		?>
 		<div class="wrap">
-			<h2><?php _e( '' ); ?></h2>
+			<h2>Analytics Buddy</h2>
 			<form action="options.php" method="POST">
 				<?php settings_fields( 'anbu-settings-group' ); ?>
 				<?php do_settings_sections( 'anbu_global_settings' ); ?>
