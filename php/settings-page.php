@@ -31,9 +31,10 @@ class ANBU_Settings_Page {
 	 * @since 1.0.0
 	 */
 	public static function setup() {
+		$view_text = __( 'View Documentation', 'analytics-buddy' );
 		register_setting( 'anbu-settings-group', 'anbu-settings' );
 		add_settings_section( 'anbu-global-section', __( 'Main Settings', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'display_main_section' ), 'anbu_global_settings' );
-		add_settings_field( 'id-field', __( 'Your tracking ID. Should look like UA-XXXX-Y.', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'id_field' ), 'anbu_global_settings', 'anbu-global-section' );
+		add_settings_field( 'id-field', __( 'Your tracking ID. Should look like UA-XXXX-Y.', 'analytics-buddy' ) . ' <a target="_blank" href="https://markasio.com/docs/analytics-buddy/getting-your-tracking-id/">' . $view_text . '</a>', array( 'ANBU_Settings_Page', 'id_field' ), 'anbu_global_settings', 'anbu-global-section' );
 		add_settings_field( 'disable-user', __( 'Exclude tracking logged-in users?', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'disable_user_field' ), 'anbu_global_settings', 'anbu-global-section' );
 		add_settings_field( 'anonymize-ip', __( 'Anonymize IP Addresses?', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'anonymize_ip_field' ), 'anbu_global_settings', 'anbu-global-section' );
 		add_settings_field( 'do-not-track', __( 'Honor Do Not Track?', 'analytics-buddy' ), array( 'ANBU_Settings_Page', 'do_not_track_field' ), 'anbu_global_settings', 'anbu-global-section' );
