@@ -4,7 +4,7 @@
  * Description: Quickly and easily add Google Analytics to your site
  * Version: 1.0.0
  * Author: Frank Corso
- * Author URI: https://markasio.com/
+ * Author URI: https://frankcorso.me/
  * Plugin URI: https://markasio.com/
  * Text Domain: analytics-buddy
  *
