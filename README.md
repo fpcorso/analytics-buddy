@@ -1,9 +1,7 @@
 # Analytics Buddy
-
 Easily and quickly add Google Analytics to your WordPress site
 
 ## Getting Started
-
 This repo is for the plugin. This can be downloaded as a zip and installed as-is with no build script needing to be run.
 
 ## Contributing
