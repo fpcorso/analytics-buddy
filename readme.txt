@@ -4,7 +4,7 @@ Tags: analytics, google, tracking, integration
 Requires at least: 4.8
 Tested up to: 4.9
 Requires PHP: 5.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ A simple and quick way to add Google Analytics to your WordPress site. No bloatw
 
 Collecting data about your site visitors is crucial in order to grow your site. One of the most common tools to do this is Google Analytics.
 
-While there are many plugins that will install Google Analytics on your WordPress site, this one is the simplest and easiest to set up.
+Quickly add Google Analytics to your site. Copy and paste your tracking ID from Google Analytics to the new "Analytics Buddy" page in the "Settings" menu and you're done!
 
 Plus, there are:
 
@@ -51,6 +51,9 @@ If you need any assistance, feel free to post in the support forums!
 1. Settings page
 
 == Changelog ==
+
+= 1.0.1 (June 15, 2018) =
+* Modifies text in plugin and readme
 
 = 1.0.0 (June 1, 2018) =
 * Initial Release
