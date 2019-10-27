@@ -46,7 +46,7 @@ class ANBU_Settings_Page {
 	 * @since 1.0.0
 	 */
 	public static function display_main_section() {
-		echo '<p>' . __( 'Enter in your tracking ID and start collecting data for Google Analytics!', 'analytics-buddy' ) . '</p>';
+		echo '<p>' . esc_html__( 'Enter in your tracking ID and start collecting data for Google Analytics!', 'analytics-buddy' ) . '</p>';
 	}
 
 	/**
@@ -70,11 +70,9 @@ class ANBU_Settings_Page {
 	public static function disable_user_field() {
 		global $analytics_buddy;
 		$settings = $analytics_buddy->get_settings();
-		$checked = '';
-		if ( '1' == $settings['disable_user'] ) {
-			$checked = " checked='checked'";
-		}
-		echo "<input type='checkbox' name='anbu-settings[disable_user]' id='anbu-settings[disable_user]' value='1'$checked />";
+		?>
+		<input type='checkbox' name='anbu-settings[disable_user]' id='anbu-settings[disable_user]' value='1' <?php checked( '1', $settings['disable_user'] ); ?>>
+		<?php
 	}
 
 	/**
@@ -85,11 +83,9 @@ class ANBU_Settings_Page {
 	public static function anonymize_ip_field() {
 		global $analytics_buddy;
 		$settings = $analytics_buddy->get_settings();
-		$checked = '';
-		if ( '1' == $settings['anonymize_ip'] ) {
-			$checked = " checked='checked'";
-		}
-		echo "<input type='checkbox' name='anbu-settings[anonymize_ip]' id='anbu-settings[anonymize_ip]' value='1'$checked />";
+		?>
+		<input type='checkbox' name='anbu-settings[anonymize_ip]' id='anbu-settings[anonymize_ip]' value='1' <?php checked( '1', $settings['anonymize_ip'] ); ?>>
+		<?php
 	}
 
 	/**
@@ -100,11 +96,9 @@ class ANBU_Settings_Page {
 	public static function do_not_track_field() {
 		global $analytics_buddy;
 		$settings = $analytics_buddy->get_settings();
-		$checked = '';
-		if ( '1' == $settings['do_not_track'] ) {
-			$checked = " checked='checked'";
-		}
-		echo "<input type='checkbox' name='anbu-settings[do_not_track]' id='anbu-settings[do_not_track]' value='1'$checked />";
+		?>
+        <input type='checkbox' name='anbu-settings[do_not_track]' id='anbu-settings[do_not_track]' value='1' <?php checked( '1', $settings['do_not_track'] ); ?>>
+        <?php
 	}
 
 	/**
