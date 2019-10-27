@@ -50,7 +50,10 @@ class Analytics_Buddy {
 	 * @since 1.0.0
 	 */
 	public function load_dependencies() {
-		include 'php/settings-page.php';
+	    if ( is_admin() ) {
+            include 'php/settings-page.php';
+            include 'php/class-anbu-review-manager.php';
+        }
 		include 'php/ga-code.php';
 	}
 

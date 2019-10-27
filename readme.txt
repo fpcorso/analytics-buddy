@@ -1,8 +1,8 @@
 === Analytics Buddy ===
 Contributors: fpcorso
 Tags: analytics, google, tracking, integration
-Requires at least: 4.8
-Tested up to: 4.9
+Requires at least: 5.2
+Tested up to: 5.3
 Requires PHP: 5.4
 Stable tag: 1.0.1
 License: GPLv2
@@ -37,6 +37,9 @@ If you need any assistance, feel free to post in the support forums!
 1. Settings page
 
 == Changelog ==
+
+= 1.0.2 (October 28, 2019) =
+*
 
 = 1.0.1 (June 15, 2018) =
 * Modifies text in plugin and readme
