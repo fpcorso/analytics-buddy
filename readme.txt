@@ -8,7 +8,7 @@ Stable tag: 1.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple and quick way to add Google Analytics to your WordPress site. No bloatware. No ads. No affiliate links.
+A simple and quick way to add Google Analytics to your WordPress site.
 
 == Description ==
 
@@ -16,24 +16,10 @@ Collecting data about your site visitors is crucial in order to grow your site. 
 
 Quickly add Google Analytics to your site. Copy and paste your tracking ID from Google Analytics to the new "Analytics Buddy" page in the "Settings" menu and you're done!
 
-Plus, there are:
-
-* No ads
-* No bloatware
-* No affiliate links
-* No popup when deactivating
-
 Just a simple and quick way to add Google Analytics to your WordPress site.
 
 = Make Suggestions Or Contribute =
 We are on [GitHub](https://github.com/fpcorso/analytics-buddy/)!
-
-== Installation ==
-
-* Navigate to Add New Plugin page within your WordPress
-* Search for Analytics Buddy
-* Click Install Now link on the plugin and follow the prompts
-* Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
 

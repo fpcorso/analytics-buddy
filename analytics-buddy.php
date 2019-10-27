@@ -5,7 +5,7 @@
  * Version: 1.0.1
  * Author: Frank Corso
  * Author URI: https://frankcorso.me/
- * Plugin URI: https://markasio.com/
+ * Plugin URI: https://frankcorso.me/
  * Text Domain: analytics-buddy
  *
  * @author Frank Corso
