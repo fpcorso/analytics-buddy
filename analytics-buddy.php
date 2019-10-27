@@ -64,7 +64,9 @@ class Analytics_Buddy {
 	 * @uses ANBU_Settings_Page::init
 	 */
 	public function init() {
-		ANBU_Settings_Page::init();
+	    if ( is_admin() ) {
+            ANBU_Settings_Page::init();
+        }
 		add_action( 'admin_menu', array( $this, 'setup_admin' ) );
 		add_action( 'wp_head', 'anbu_add_ga_script' );
 	}
