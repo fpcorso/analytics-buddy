@@ -4,7 +4,7 @@ Tags: analytics, google, tracking, integration
 Requires at least: 5.2
 Tested up to: 5.3
 Requires PHP: 5.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,7 +39,8 @@ If you need any assistance, feel free to post in the support forums!
 == Changelog ==
 
 = 1.0.2 (October 28, 2019) =
-*
+* Ensures compatibility with recent versions of WordPress
+* Switches links to go to new site
 
 = 1.0.1 (June 15, 2018) =
 * Modifies text in plugin and readme
