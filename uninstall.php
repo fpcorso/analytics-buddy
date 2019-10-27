@@ -11,4 +11,5 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 delete_option( 'anbu-settings' );
+delete_option( 'anbu_review_message_trigger' );
 ?>
