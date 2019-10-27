@@ -19,4 +19,4 @@ See also [the list of contributors](https://github.com/fpcorso/analytics-buddy/g
 This project is licensed under the GPLv2 License - see the [LICENSE.md file](https://github.com/fpcorso/analytics-buddy/blob/master/LICENSE.md) for details.
 
 ## Support ##
-This is a developer's portal for this plugin and should _not_ be used for support. Please create a support ticket [here](https://markasio.com/quiz/contact-us/).
+This is a developer's portal for this plugin and should _not_ be used for support. Please [create a post in the support forums](https://wordpress.org/support/plugin/analytics-buddy/).
