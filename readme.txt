@@ -26,9 +26,6 @@ We are on [GitHub](https://github.com/fpcorso/analytics-buddy/)!
 = Where are the settings? =
 Once the plugin is activated, there is a new page called "Analytics Buddy" in your "Settings" menu within your WordPress admin.
 
-= Where do I find my tracking ID? =
-For help getting your tracking ID, check out our [Getting Your Google Analytics Tracking ID Documentation](http://bit.ly/2szAtls).
-
 = I need help! =
 If you need any assistance, feel free to post in the support forums!
 
