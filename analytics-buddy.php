@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Analytics Buddy
  * Description: Quickly and easily add Google Analytics to your site
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Frank Corso
  * Author URI: https://frankcorso.me/
  * Plugin URI: https://markasio.com/
  * Text Domain: analytics-buddy
  *
  * @author Frank Corso
- * @version 1.0.0
+ * @version 1.0.1
  * @package ANBU
  */
 
@@ -30,7 +30,7 @@ class Analytics_Buddy {
 	 * @since 1.0.0
 	 * @var string
 	 */
-	public $version = '1.0.0';
+	public $version = '1.0.1';
 
 	/**
 	 * Sets up the entire plugin
