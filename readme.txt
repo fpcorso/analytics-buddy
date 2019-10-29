@@ -1,6 +1,6 @@
 === Analytics Buddy ===
 Contributors: fpcorso
-Tags: analytics, google, tracking, integration
+Tags: analytics, google, google analytics, integration, insights
 Requires at least: 5.2
 Tested up to: 5.3
 Requires PHP: 5.4
