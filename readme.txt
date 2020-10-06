@@ -2,7 +2,7 @@
 Contributors: fpcorso
 Tags: analytics, google, tracking, integration
 Requires at least: 5.2
-Tested up to: 5.3
+Tested up to: 5.5
 Requires PHP: 5.4
 Stable tag: 1.0.2
 License: GPLv2
