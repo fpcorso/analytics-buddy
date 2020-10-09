@@ -1,6 +1,6 @@
 === Analytics Buddy ===
 Contributors: fpcorso
-Tags: analytics, google, tracking, integration
+Tags: analytics, google, tracking, do not track
 Requires at least: 5.2
 Tested up to: 5.5
 Requires PHP: 5.4
@@ -17,6 +17,13 @@ Collecting data about your site visitors is crucial in order to grow your site. 
 Quickly add Google Analytics to your site. Copy and paste your tracking ID from Google Analytics to the new "Analytics Buddy" page in the "Settings" menu and you're done!
 
 Just a simple and quick way to add Google Analytics to your WordPress site.
+
+Our simple settings allow you to:
+
+* Exclude logged in users from your analytics
+* Use the anonymize ip setting to turn on Google Analytics IP Anonymization
+* Honor the do not track headers found in some browsers
+
 
 = Make Suggestions Or Contribute =
 We are on [GitHub](https://github.com/fpcorso/analytics-buddy/)!
